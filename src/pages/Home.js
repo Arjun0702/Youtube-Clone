@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 import { CategoryItems } from "../static/data";
 import {collection, onSnapshot, query} from "firebase/firestore"
 import { auth, db } from "../Firebase";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Video from "../components/Video";
 import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
@@ -12,22 +12,28 @@ import {  setUsers } from "../slices/userSlice";
 const Home = () => {
  
     const[videos,setVideos]=useState([]);
-    console.log(videos);
+    // console.log(videos);
     const dispatch=useDispatch();
     // navigate
     const navigate = useNavigate();
 
     useEffect(()=>{
-        const q=query(collection(db,"videos"));
+      const q=query(collection(db,"videos"));
         onSnapshot(q,(snapShot)=>{
-            setVideos(
-                snapShot.docs.map((doc)=>({
-                    ...doc.data(),
-                    id:doc.id,
+      console.log(snapShot);
+    setVideos(
+        snapShot.docs.map((doc)=>({
+            ...doc.data(),
+            id:doc.id,
 
-                }))
-            );
-        })
+        }))
+    );
+})
+    
+       
+        //console.log(q);
+        // console.log(videos);
+        
     }, [])
 
     useEffect(()=>{
@@ -74,3 +80,15 @@ const Home = () => {
 };
 
 export default Home;
+
+// const q=query(collection(db,"videos"));
+// onSnapshot(q,(snapShot)=>{
+//   console.log(snapShot);
+//     setVideos(
+//         snapShot.docs.map((doc)=>({
+//             ...doc.data(),
+//             id:doc.id,
+
+//         }))
+//     );
+// })

@@ -24,7 +24,7 @@ const Navbar = () => {
 
    const handlelogOut= async()=>{
       dispatch(logout());
-      await signOut(auth)
+      await signOut(auth);
    };
 
     console.log("user",user);

@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
+        <Route path="/Youtube-Clone" element={<Home/>}></Route>
         <Route path="/Video/:id" element={<Video/>}></Route>
       </Routes>
     </BrowserRouter>

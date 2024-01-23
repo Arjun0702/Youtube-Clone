@@ -17,6 +17,7 @@ const Video = () => {
   const [videos, setVideos] = useState([]);
   const [comment, setComment] = useState([]);
   const [data, setData] = useState(null);
+  
 
   const { id } = useParams();
   // console.log("id", id);
@@ -29,7 +30,7 @@ const Video = () => {
       onSnapshot(q, (snapShot) => {
         setData(snapShot.data());
       });
-      // console.log("q", q);
+      console.log("q", q);
     }
   }, [id]);
   useEffect(()=>{
@@ -44,7 +45,7 @@ const Video = () => {
         );
     })
 }, [])
-  // console.log("Data", data);
+   console.log("Data", data);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
