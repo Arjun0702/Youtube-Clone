@@ -30,7 +30,7 @@ const Video = () => {
       onSnapshot(q, (snapShot) => {
         setData(snapShot.data());
       });
-      console.log("q", q);
+      //console.log("q", q);
     }
   }, [id]);
   useEffect(()=>{
@@ -55,7 +55,7 @@ const Video = () => {
         dispatch(setUsers(null));
       }
     });
-  }, []);
+  });
 
   return (
     <div className="py-20 px-9 bg-yt-black flex flex-row h-full">

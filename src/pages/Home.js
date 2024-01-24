@@ -45,7 +45,7 @@ const Home = () => {
             dispatch(setUsers(null));
            }
        })
-    }, []);
+    });
     // console.log(videos)
 
   return (
